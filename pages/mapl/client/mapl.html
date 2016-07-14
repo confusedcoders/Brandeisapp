@@ -2,4 +2,18 @@
 
 <h1>Make your packing list!</h1>
 
+	<input type="text" class="form-control js-list" placeholder="What are you bringing next?">
+ 	<button class="js-submit-packinglist">Submit</button>
+
+<br>
+<h3> List: </h3>
+<br>
+<ol>
+  {{#each item in items}}
+    <li> {{item.list}} </li>
+  {{/each}}
+</ol>
+<br>
+<br>
+
 </template>
