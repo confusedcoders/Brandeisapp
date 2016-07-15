@@ -1,4 +1,4 @@
-<template name="packinglist"> 
+<template name="packingList"> 
 
 <h1>Make your packing list!</h1>
 
@@ -9,8 +9,8 @@
 <h3> List: </h3>
 <br>
 <ol>
-  {{#each item in items}}
-    <li> {{item.list}} </li>
+  {{#each user in users}}
+    <li><input type="checkbox" name="packed"> {{user.item}} </li>
   {{/each}}
 </ol>
 <br>
