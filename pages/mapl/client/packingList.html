@@ -4,7 +4,7 @@
   <h1>Make your packing list!</h1>
   
  	<input type="text" class="form-control js-list" placeholder="What are you bringing next?">
-  	<button class="js-submit-packinglist">Submit</button>
+  	<button class="btn btn-success js-submit-packinglist">Submit</button>
  
  <br>
  <h3> List: </h3>
@@ -16,7 +16,7 @@
     {{/each}}
   </ol>
   <br>
- <button id="resetlist">Reset</button>
+ <button class= "btn btn-danger" id="resetlist">Reset</button>
   <br>
  
  {{else}}
@@ -25,5 +25,5 @@
   </template> 
 
 <template name="question">
-   <li><input type="checkbox" class="js-packed" {{checked}}> {{user.item}}  <button id="deleteitem"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> </li>
+   <li><input type="checkbox" class="js-packed" {{checked}}> {{user.item}}  <button class= "btn-xs btn-danger" id="deleteitem"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> </li>
 </template>
