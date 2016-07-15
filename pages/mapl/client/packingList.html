@@ -1,19 +1,24 @@
 <template name="packingList"> 
-
-<h1>Make your packing list!</h1>
-
-	<input type="text" class="form-control js-list" placeholder="What are you bringing next?">
- 	<button class="js-submit-packinglist">Submit</button>
-
-<br>
-<h3> List: </h3>
-<br>
-<ol>
-  {{#each user in users}}
-    <li><input type="checkbox" name="packed"> {{user.item}} </li>
-  {{/each}}
-</ol>
-<br>
-<br>
-
-</template>
+ {{#if currentUser}}
+  
+  <h1>Make your packing list!</h1>
+  
+ 	<input type="text" class="form-control js-list" placeholder="What are you bringing next?">
+  	<button class="js-submit-packinglist">Submit</button>
+ 
+ <br>
+ <h3> List: </h3>
+ <br>
+ <ol>
+   {{#each user in users}}
+     <li><input type="checkbox" name="packed"> {{user.item}} </li>
+    {{/each}}
+  </ol>
+  <br>
+ <button id="resetlist">Reset</button>
+  <br>
+ 
+ {{else}}
+     <h2>You must log in add to or see your packing list</h2>
+   {{/if}}
+  </template> 

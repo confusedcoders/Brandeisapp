@@ -1,4 +1,4 @@
-Template.whereugoing.helpers(
+Template.whereugoin.helpers(
  {
 
    trips: function(){
@@ -7,13 +7,13 @@ Template.whereugoing.helpers(
  }
 )
 
-Template.whereugoing.events({
+Template.whereugoin.events({
 	"click .js-submit-tripinfo": 
 		function(event) {
 			console.log("yes");
 			const destination = $(".js-destination").val();
 			const returndate = $(".js-returndate").val();
-			const leaving = $(".js-returndate").val();
+			const leaving = $(".js-leaving").val();
 			const people = $(".js-people").val();
 			const triptype = $(".js-triptype").val();
 			const tripname = $(".js-tripname").val();
