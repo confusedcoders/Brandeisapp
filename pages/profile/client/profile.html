@@ -1,5 +1,6 @@
 
 <template name="profile">
+{{#if currentUser}}
 <h3> Let's get to know each other! </h3>
 <form>
 
@@ -48,6 +49,9 @@
 </ol>
 <br>
 <br>
+{{else}}
+    <h2>You must log in to see the chats</h2>
+  {{/if}}
 
 
 </template>

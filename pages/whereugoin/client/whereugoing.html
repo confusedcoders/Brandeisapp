@@ -1,6 +1,7 @@
 <!--we will take this out of the menu bar and redirect people to this when setting up a packing list-->
 
 <template name="whereugoin">
+{{#if currentUser}}
 	<h1>Where are you going?</h1>
 <br>
 <br>
@@ -23,7 +24,10 @@
 </form>
 What type of trip?
 <input type="text" class="form-control" placeholder="Ex. Ski trip, Beach get-away, ect.">
-<button type="button" class="btn btn-success btn-lg">Success</button>
+<button type="button" class="btn btn-success btn-lg" name="Where am I going submit">Submit</button>
 
 	</ul>
+	{{else}}
+    <h2>You must log in to see the chats</h2>
+  {{/if}}
 </template>
