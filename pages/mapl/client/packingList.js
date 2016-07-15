@@ -1,20 +1,20 @@
 
-Template.about.helpers(
+Template.packingList.helpers(
  {
-   items: function(){
-   	return PackingList.find();
- }
+   users: function(){
+   	return userinfo.find();
+ }}
  )
 
-Template.packinglist.events({
+Template.packingList.events({
 	"click .js-submit-packinglist": 
 		function(event) {
-			consol.log("yes");
+			console.log("yes");
 			const list = $(".js-list").val();
 			console.log(list); 
-			const item = {item:item}
+			const item = {item:list, createdBy:Meteor.userId()};
 			console.dir(item);
-			PackingList.insert(item);
+			userinfo.insert(item);
 	}
 	//"click .js-delete":function(event){
 	//	PackingList.remove(this_id);
