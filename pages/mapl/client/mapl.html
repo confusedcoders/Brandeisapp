@@ -1,0 +1,9 @@
+<template name="mapl">
+<h1>Make a list!</h1>
+
+  {{#each pokemon in }}
+     <a href="/maplData/{{pokemon._id}}">{{pokemon.ename}}</a>
+  {{/each}}
+  <hr>
+
+</template>
