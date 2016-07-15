@@ -1,7 +1,7 @@
 Template.packingList.helpers(
    {
      users: function(){
-   	return userinfo.find({createdBy:Meteor.userId()});
+   	return UserInfo.find({createdBy:Meteor.userId()});
    }}
    )
   
@@ -12,7 +12,7 @@ Template.packingList.helpers(
  			console.log(list); 
   			const item = {item:list, createdBy:Meteor.userId(), current:false};
   			console.dir(item);
-  			userinfo.insert(item);
+  			UserInfo.insert(item);
 
  	},
  		"click #resetlist":function(){ console.log("click")
@@ -30,13 +30,13 @@ Template.question.events({
 	"click .js-packed": function(event){
 		var theCurrentValue = event.target.checked;
 		console.log ("theCurrentValue=" + theCurrentValue);
-		userinfo.update(this.user._id, {$set:{current:theCurrentValue}});
-		Meteor.users.update({_id: userinfo._id}, {$set: {"profile.ischecked": ischecked}});
+		UserInfo.update(this.user._id, {$set:{current:theCurrentValue}});
+		Meteor.users.update({_id: UserInfo._id}, {$set: {"profile.ischecked": ischecked}});
 		  
  
 	
 	},
 	"click #deleteitem":function(event){console.log(this)
-  	userinfo.remove(this.user._id);
+  	UserInfo.remove(this.user._id);
  	}
 });
