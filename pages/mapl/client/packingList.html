@@ -11,7 +11,8 @@
  <br>
  <ol>
    {{#each user in users}}
-     <li><input type="checkbox" name="packed"> {{user.item}} </li>
+     {{> question user=user}}
+
     {{/each}}
   </ol>
   <br>
@@ -22,3 +23,7 @@
      <h2>You must log in add to or see your packing list</h2>
    {{/if}}
   </template> 
+
+<template name="question">
+   <li><input type="checkbox" class="js-packed" {{checked}}> {{user.item}}  <button id="deleteitem"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> </li>
+</template>
