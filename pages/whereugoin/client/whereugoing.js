@@ -8,7 +8,7 @@ Template.whereugoing.helpers(
 )
 
 Template.whereugoing.events({
-	"click .js-submit-profile": 
+	"click .js-submit-tripinfo": 
 		function(event) {
 			console.log("yes");
 			const destination = $(".js-destination").val();
