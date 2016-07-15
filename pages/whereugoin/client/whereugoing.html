@@ -7,28 +7,38 @@
 <br>
 <br>
 <br>
-	<ul>
+<ul>
 	<h4>Name your trip!</h4>
 		<input type="text" class="form-control js-tripname" placeholder="Ex. Summer 2016 Adventure!">
-	<br>
-		Destination:
+<br>
+	<h5>Destination:</h5>
 		<input type="text" class="form-control js-destination" placeholder="Ex. California">
-		<br>
-		<form>
- 	 When are you leaving?:
-  	<input type="date" name="bday js-leaving">
-	</form>	
-	<form>
-	When are you coming back?:
-  	<input type="date" name="bday js-returndate">
-	</form>
-	<form>
-  How many people?:
- 	<input type="number" name="How many people js-people" min="0">
+<br>
+
+<form>
+ 	<h5>When are you leaving?:</h5>
+  		<input type="date" name="bday js-leaving">
+</form>	
+
+<br>
+
+<form>
+	<h5>When are you coming back?:</h5>
+  		<input type="date" name="bday js-returndate">
 </form>
-What type of trip?
-	<input type="text" class="form-control js-triptype" placeholder="Ex. Ski trip, Beach get-away, ect.">
- 	<a href="{{pathFor 'packinglist'}}"><button type="button" class="btn btn-success btn-lg js-submit-profile" name="Where am I going submit">Submit</button> </a> 
+
+<br>
+
+<form>
+ 	<h5>How many people?:</h5>
+ 		<input type="number" name="How many people js-people" min="0">
+</form>
+
+<br>
+	<h5>What type of trip?</h5>
+		<input type="text" class="form-control js-triptype" placeholder="Ex. Ski trip, Beach get-away, ect.">
+ <br>
+ 	<a href="{{pathFor 'packingList'}}"><button type="button" class="btn btn-success btn-lg" name="Where am I going submit">Submit</button> </a> 
 
 
 <br>
@@ -36,11 +46,11 @@ What type of trip?
 <br>
 <ol>
   {{#each trip in trips}}
-    <li> {{trip.tripname}} {{trip.destination}} {{trip.leaving}} {{trip.people}} {{trip.triptype}}</li>
+    <li> {{trip.tripname}} {{trip.destination}} {{trip.leaving}} {{trip.returndate}} {{trip.people}} {{trip.triptype}}</li>
   {{/each}}
 </ol>
 <br>
-	</ul>
+</ul>
 	{{else}}
     <h2>You must log in to see the chats</h2>
   {{/if}}
