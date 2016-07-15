@@ -17,9 +17,12 @@
   <div>
     <label for="CreateAccountInputGender">Gender</label>
 <br>
-      <input type="radio" name="gender" value="male"> Male<br>
-      <input type="radio" name="gender" value="female"> Female<br>
-      <input type="radio" name="gender" value="other"> Other
+    <select class="form-control js-gender">  
+      <option>Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
   </div>
 
 <br>
@@ -44,7 +47,7 @@
 <br>
 <ol>
   {{#each user in users}}
-    <li> {{user.firstname}} {{user.lastname}} {{user.email}} {{user.password1}} {{user.password2}} </li>
+    <li> {{user.firstname}} {{user.lastname}} {{user.gender}} {{user.date}}</li>
   {{/each}}
 </ol>
 <br>
