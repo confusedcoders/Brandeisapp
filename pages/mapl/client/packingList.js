@@ -1,5 +1,5 @@
 
-Template.packingList.helpers(
+Template.packinglist.helpers(
  {
    users: function(){
    	return userinfo.find({createdBy:Meteor.userId()});
