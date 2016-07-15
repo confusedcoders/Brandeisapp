@@ -20,10 +20,10 @@ Template.profile.events({
 			console.log(lastname); 
 			console.log(gender); 
 			console.log(date); 
-			const item = {firstname:firstname, lastname:lastname, gender:gender, date:date}
+			const item = {firstname:firstname, lastname:lastname, gender:gender, date:date};
 			console.dir(item);
 			UserInfo.insert(item);
-	},
+	}
 //	"click .js-delete":function(event){
 //		UserInfo.remove(this_id); 
 //	}

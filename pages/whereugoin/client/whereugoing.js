@@ -27,7 +27,7 @@ Template.whereugoin.events({
 			console.dir(item);
 			TripInfo.insert(item);
 	},
-//	"click .js-delete":function(event){
-//		UserInfo.remove(this_id); 
-//	}
+"click .js-delete":function(event){
+		UserInfo.remove(this_id); 
+	}
 })
