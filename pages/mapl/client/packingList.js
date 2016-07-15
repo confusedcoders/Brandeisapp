@@ -2,7 +2,7 @@
 Template.packingList.helpers(
  {
    users: function(){
-   	return userinfo.find();
+   	return userinfo.find({createdBy:Meteor.userId()});
  }}
  )
 
@@ -15,6 +15,9 @@ Template.packingList.events({
 			const item = {item:list, createdBy:Meteor.userId()};
 			console.dir(item);
 			userinfo.insert(item);
+	},
+	"click #resetlist":function(){ console.log("click")
+		Meteor.call("remove",Meteor.userId())
 	}
 	//"click .js-delete":function(event){
 	//	PackingList.remove(this_id);

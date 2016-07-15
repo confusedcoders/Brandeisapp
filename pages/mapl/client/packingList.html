@@ -1,4 +1,5 @@
 <template name="packingList"> 
+{{#if currentUser}}
 
 <h1>Make your packing list!</h1>
 
@@ -14,6 +15,9 @@
   {{/each}}
 </ol>
 <br>
+<button id="resetlist">Reset</button>
 <br>
-
+{{else}}
+    <h2>You must log in add to or see your packing list</h2>
+  {{/if}}
 </template>
