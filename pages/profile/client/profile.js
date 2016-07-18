@@ -20,7 +20,13 @@ Template.profile.events({
 			console.log(lastname); 
 			console.log(gender); 
 			console.log(date); 
-			const item = {firstname:firstname, lastname:lastname, gender:gender, date:date};
+			const item = 
+			{firstname:firstname, 
+			 lastname:lastname, 
+			 gender:gender, 
+			 date:date,
+			 createdAt: new Date(),
+			 userId: Meteor.userId()};
 			console.dir(item);
 			UserInfo.insert(item);
 	}
