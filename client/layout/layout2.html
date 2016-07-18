@@ -2,7 +2,6 @@
 	<!-- this is an alternate and simpler navigation bar -->
 	<div class="container">
 
-		<div class="topbar">
 
 	<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
 		<nav class="navbar navbar-default">
@@ -10,7 +9,7 @@
 
 				<a class="navbar-brand" href="{{pathFor 'home'}}">PackOut</a>
 
-				<ul class="nav nav-pills">
+				<ul class="nav nav-pills topbar">
 				  <li class="listbar" role="presentation"><a href="{{pathFor 'about'}}">About</a></li>
 				  <li class="listbar" role="presentation"><a href="{{pathFor 'profile'}}">Profile</a></li>
 				  <li class="listbar" role="presentation"><a href="{{pathFor 'whereugoin'}}">Where are you going?</a></li>
@@ -27,7 +26,6 @@
 			  
 		  </div><!-- /.container-fluid -->
 		</nav>
-		</div>
 
 		<!-- Here is where the actual content of the page
 		     gets inserted by the router! -->
