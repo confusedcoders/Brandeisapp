@@ -2,28 +2,32 @@
 	<!-- this is an alternate and simpler navigation bar -->
 	<div class="container">
 
+		<div class="topbar">
 
-		<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
+	<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 
 				<a class="navbar-brand" href="{{pathFor 'home'}}">PackOut</a>
 
 				<ul class="nav nav-pills">
-				  <li role="presentation"><a href="{{pathFor 'about'}}">About</a></li>
-				  <li role="presentation"><a href="{{pathFor 'profile'}}">Profile</a></li>
-				  <li role="presentation"><a href="{{pathFor 'whereugoin'}}">Where are you going?</a></li>
-				  <li role="presentation"><a href="{{pathFor 'packingList'}}">Packing List</a></li>
-				  <li role="presentation"><a href="{{pathFor 'search'}}">Search</a></li>
+				  <li class="listbar" role="presentation"><a href="{{pathFor 'about'}}">About</a></li>
+				  <li class="listbar" role="presentation"><a href="{{pathFor 'profile'}}">Profile</a></li>
+				  <li class="listbar" role="presentation"><a href="{{pathFor 'whereugoin'}}">Where are you going?</a></li>
+				  <li class="listbar" role="presentation"><a href="{{pathFor 'packingList'}}">Packing List</a></li>
+				  <li class="listbar" role="presentation"><a href="{{pathFor 'search'}}">Search</a></li>
+				  <li class="nav navbar-nav navbar-right"> 
+			            {{> loginButtons}} <!-- here --> 
+			            </li>
+
 
 					<!-- add more li's here for your navigation bar -->
 				</ul>
 
-			  <ul class="nav navbar-nav navbar-right">
-			            {{> loginButtons}} <!-- here -->
-			  </ul>
+			  
 		  </div><!-- /.container-fluid -->
 		</nav>
+		</div>
 
 		<!-- Here is where the actual content of the page
 		     gets inserted by the router! -->
