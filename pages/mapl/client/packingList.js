@@ -1,15 +1,16 @@
 Template.packingList.helpers(
    {
-     users: function(){
-   	return UserInfo.find({createdBy:Meteor.userId()});
-   },users:function(){
-   	return UserInfo.find({},
-   		{sort:{current:1}})
-   },
-progressnumber: function(){
-	if (UserInfo.find().current==true)}
-}
-})
+    users: function(){
+   	return UserInfo.find({createdBy:Meteor.userId()});},
+
+   	users:function(){
+   		return UserInfo.find({}, {sort:{current:1}});},
+   	//progressnumber: function(){
+
+
+   	
+   })
+   
   
  Template.packingList.events({
  	"click .js-submit-packinglist": function(event) {
@@ -28,19 +29,37 @@ progressnumber: function(){
  Template.question.helpers({
  	checked: function(){
  		if (this.current) return "checked"; else return "";},
- 		ischecked:function(){return Meteor.user().profile.ischecked;}
 
+ 	isChecked:function(){return Meteor.user().profile.isChecked;
+ 		},
+ 	bar:function(){
+ 		return Math.floor(Session.get("bar")*100)
+ 	}
 
  })
+
 Template.question.events({
 	"click .js-packed": function(event){
 		var theCurrentValue = event.target.checked;
 		console.log ("theCurrentValue=" + theCurrentValue);
+
+
+		var progress = UserInfo.find({userId:Meteor.userId()}).fetch();
+		console.log(UserInfo.find({userId:Meteor.userId()}).fetch());
+		var counter = 0;
+		for(i = 0; i < progress.length;i++){
+			if(progress[i].current) {
+				counter++;
+			}
+		}
+		Session.set("bar",(counter/progress.length));
+
 		UserInfo.update(this.user._id, {$set:{current:theCurrentValue}});
-		Meteor.users.update({_id: UserInfo._id}, {$set: {"profile.ischecked": ischecked}});
-		  
- 
-	
+		var userID = Meteor.user()._id;
+
+		var isChecked = event.target.checked;
+		Meteor.users.update({_id: userID}, {$set: {"profile.ischecked": isChecked}});
+		 
 	},
 	"click #deleteitem":function(event){console.log(this)
   	UserInfo.remove(this.user._id);
