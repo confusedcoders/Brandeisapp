@@ -5,8 +5,11 @@ Template.packingList.helpers(
    },users:function(){
    	return UserInfo.find({},
    		{sort:{current:1}})
-   },}
-   )
+   },
+progressnumber: function(){
+	if (UserInfo.find().current==true)}
+}
+})
   
  Template.packingList.events({
  	"click .js-submit-packinglist": function(event) {
