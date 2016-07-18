@@ -4,7 +4,7 @@
 
 
 	<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
-		<nav class="navbar navbar-default">
+		<nav class="navbar">
 		  <div class="container-fluid">
 
 				<a class="navbar-brand active" href="{{pathFor 'home'}}">PackOut</a>
@@ -15,13 +15,14 @@
 				  <li class="listbar" role="presentation"><a href="{{pathFor 'whereugoin'}}">Where are you going?</a></li>
 				  <li class="listbar" role="presentation"><a href="{{pathFor 'packingList'}}">Packing List</a></li>
 				  <li class="listbar" role="presentation"><a href="{{pathFor 'search'}}">Search</a></li>
-				  <li class="nav navbar-nav navbar-right"> 
+				 </ul>
+
+				 <ul class="nav navbar-nav navbar-right">
 			            {{> loginButtons}} <!-- here --> 
-			            </li>
+			     </ul>
 
 
 					<!-- add more li's here for your navigation bar -->
-				</ul>
 
 			  
 		  </div><!-- /.container-fluid -->
