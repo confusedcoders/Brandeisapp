@@ -1,6 +1,6 @@
 Meteor.methods({
  "remove": function(user){
- 	userinfo.remove({createdBy:user})
+ 	UserInfo.remove({createdBy:user})
  }
  
  })
