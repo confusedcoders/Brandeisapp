@@ -2,7 +2,10 @@ Template.packingList.helpers(
    {
      users: function(){
    	return UserInfo.find({createdBy:Meteor.userId()});
-   }}
+   },users:function(){
+   	return UserInfo.find({},
+   		{sort:{current:1}})
+   },}
    )
   
  Template.packingList.events({
