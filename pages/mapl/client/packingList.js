@@ -28,7 +28,7 @@ Template.packingList.helpers(
  });
  Template.question.helpers({
  	checked: function(){
- 		if (this.current) return "checked"; else return "";},
+ 		if (this.user.current) return "checked"; else return "";},
 
  	isChecked:function(){return Meteor.user().profile.isChecked;
  		},
