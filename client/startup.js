@@ -1,7 +1,7 @@
 Meteor.startup(function(){
   console.log("starting up the client!");
-//  if (PackingNames.findOne({name:"default"}) == null)
-//    PackingNames.insert({name:"default"})
+  //if (PackingNames.findOne({name:"default"}) == null)
+    //PackingNames.insert({name:"default"})
 
   //Meteor.absoluteUrl.defaultOptions.rootUrl = 'http://leiner.cs-i.brandeis.edu:3000/';
 });
