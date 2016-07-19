@@ -7,6 +7,7 @@ Template.whereugoin.helpers(
  }
 )
 
+
 Template.whereugoin.events({
 	"click .js-submit-tripinfo": 
 		function(event) {
@@ -30,4 +31,8 @@ Template.whereugoin.events({
 //"click .js-delete":function(event){
 //		UserInfo.remove(this_id); 
 //	}
+
+
 })
+
+

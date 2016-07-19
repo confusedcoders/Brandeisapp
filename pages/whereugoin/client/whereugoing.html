@@ -7,6 +7,9 @@
 <br>
 <br>
 <br>
+
+<div class="whereform" style="background-color:#333; color:white; margin:20px 0 20px 0; padding:20px;">
+
 <ul>
 	<h4>Name your trip!</h4>
 		<input type="text" class="form-control js-tripname" placeholder="Ex. Summer 2016 Adventure!">
@@ -50,7 +53,10 @@
 
     </select>
  <br>
+ </ul>
+
  	<a href="{{pathFor 'packingList'}}"><button type="button" class="btn btn-success btn-lg js-submit-tripinfo" name="Tripinfo submit">Submit</button> </a> 
+ </div>
 
 
 <br>
@@ -62,7 +68,7 @@
   {{/each}}
 </ol>
 <br>
-</ul>
+
 	{{else}}
     <h2>You must log in to make a trip</h2>
   {{/if}}
