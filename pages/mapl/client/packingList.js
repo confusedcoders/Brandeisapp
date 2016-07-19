@@ -99,6 +99,6 @@ Template.question.events({
 
 	},
 	"click #deleteitem":function(event){console.log(this)
-  	UserInfo.remove(this.user._id);
+  	packingList.remove(this.user._id);
  	}
 });
