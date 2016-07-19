@@ -1,4 +1,4 @@
-Session.set("packinglistname","");
+Session.set("packinglistname","default");
 
 
 Template.packingList.helpers(
@@ -24,7 +24,7 @@ bar:function(){
    
   
  Template.packingList.events({
-        "change .js-list": function(){
+    "change .js-list": function(){
 	    const val = $(".js-list").val();
 	    console.log("changing "+val);
 	    Session.set("packinglistname",val);
@@ -36,15 +36,19 @@ bar:function(){
         },
 
 
- 	"click .js-submit-packinglist": function(event) {
- 			console.log("yes");
+ 	"click .js-submit-packinglist-btn": function(event) {
+ 			console.log("yes!");
  			const item = $(".js-item").val();
-	                const list = $(".js-list").val();
- 			console.log(list); 
+	        const list = $(".js-list").val();
+ 			console.log("list="+list); 
+ 			console.log("item="+item);
   			const itemobj= {item:item, list:list, createdBy:Meteor.userId(), current:false};
   			console.dir(itemobj);
-  			packingList.insert(itemobj);},
-  			"click .js-submit-refresh": function(event) {
+  			packingList.insert(itemobj);
+  			console.log("done inserting");
+  		},
+
+  	"click .js-submit-refresh": function(event) {
   		 const numChecked = packingList.find({createdBy:Meteor.userId(), current:true}).count();
 		 const numTotal = packingList.find({createdBy:Meteor.userId()}).count();
 		 Session.set("bar",numChecked/(1.0* numTotal));
@@ -52,10 +56,14 @@ bar:function(){
 		 console.log("numtotal="+numTotal)
 
  	},
- 		"click #resetlist":function(){ console.log("click")
+
+ 	"click #resetlist":function(){ console.log("click")
  		Meteor.call("remove",Meteor.userId())
  	},
+
  });
+
+
  Template.question.helpers({
  	checked: function(){
  		if (this.item.current) return "checked"; else return "";},
