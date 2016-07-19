@@ -1,5 +1,5 @@
 Session.set("packinglistname","default");
-
+Session.set("bar",0);
 
 Template.packingList.helpers(
    {
@@ -7,6 +7,10 @@ Template.packingList.helpers(
 	console.log(Session.get("packinglistname")+" is the listname");
    	return packingList.find({list:Session.get("packinglistname"), 
                                  createdBy:Meteor.userId()});},
+
+    allitems: function(){
+	console.log(Session.get("packinglistname")+" is the listname");
+   	return packingList.find({list:Session.get("packinglistname") },{sort:{item:1}});},
 
    	users:function(){
    		return UserInfo.find({}, {sort:{current:1}});},
@@ -16,6 +20,11 @@ bar:function(){
  	},
 
       listNames: function(){
+	  const n = PackingNames.find().count();
+	  if (n==0) {
+	      PackingNames.insert({name:"default"});
+	      Session.set("packlistname","default");
+          }
 	  return PackingNames.find({},{sort:{name:1}});
       },
 
@@ -66,6 +75,7 @@ bar:function(){
 
  Template.question.helpers({
  	checked: function(){
+	    console.log("current="+this.item.current);console.dir(this);
  		if (this.item.current) return "checked"; else return "";},
 
  	isChecked:function(){return Meteor.user().profile.isChecked;
@@ -88,14 +98,12 @@ Template.question.events({
 				counter++;
 			}
 		}
-		Session.set("bar",(counter/progress.length));
+	        const userId = Meteor.userId();
+  		 const numChecked = packingList.find({createdBy:Meteor.userId(), current:true}).count();
+		 const numTotal = packingList.find({createdBy:Meteor.userId()}).count();
+		 Session.set("bar",numChecked/(1.0* numTotal));
 
-		UserInfo.update(this.user._id, {$set:{current:theCurrentValue}});
-		var userID = Meteor.user()._id;
-
-		var isChecked = event.target.checked;
-		Meteor.users.update({_id: userID}, {$set: {"profile.ischecked": isChecked}});
-		 
+		packingList.update(this.item._id, {$set:{current:theCurrentValue}});
 
 	},
 	"click #deleteitem":function(event){console.dir(this)

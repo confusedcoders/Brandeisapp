@@ -39,6 +39,15 @@
   <br>
  <button class= "btn btn-danger" id="resetlist">Clear All</button>
   <br>
+<h1>Packing List items from all other users</h1>
+ <ol>
+   {{#each item in allitems}}
+     {{> allquestion item=item}}
+
+    {{/each}}
+  </ol>
+  <br>
+
  
  {{else}}
      <h2>You must log in add to or see your packing list</h2>
@@ -47,4 +56,8 @@
 
 <template name="question">
    <li><input type="checkbox" class="js-packed" {{checked}}> {{item.item}}  <button class= "btn-xs btn-danger" id="deleteitem"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> </li>
+</template>
+
+<template name="allquestion">
+   <li> {{item.item}} </li>
 </template>
