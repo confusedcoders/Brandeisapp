@@ -2,7 +2,8 @@ Template.profile.helpers(
  {
 
    users: function(){
-   return UserInfo.find();
+       console.dir(UserInfo.find().fetch()); console.dir(Meteor.userId());
+   return UserInfo.find({userId:Meteor.userId()});
    }
  }
 )
