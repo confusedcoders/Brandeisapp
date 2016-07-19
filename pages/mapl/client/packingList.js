@@ -6,7 +6,9 @@ Template.packingList.helpers(
    	users:function(){
    		return UserInfo.find({}, {sort:{current:1}});},
    	//progressnumber: function(){
-
+bar:function(){
+ 		return Math.floor(Session.get("bar")*100)
+ 	}
 
    	
    })
@@ -19,7 +21,13 @@ Template.packingList.helpers(
  			console.log(list); 
   			const item = {item:list, createdBy:Meteor.userId(), current:false};
   			console.dir(item);
-  			UserInfo.insert(item);
+  			UserInfo.insert(item);},
+  			"click .js-submit-refresh": function(event) {
+  		 const numChecked = UserInfo.find({createdBy:Meteor.userId(), current:true}).count();
+		 const numTotal = UserInfo.find({createdBy:Meteor.userId()}).count();
+		 Session.set("bar",numChecked/(1.0* numTotal));
+		 console.log("numcheck="+numChecked)
+		 console.log("numtotal="+numTotal)
 
  	},
  		"click #resetlist":function(){ console.log("click")
@@ -32,9 +40,7 @@ Template.packingList.helpers(
 
  	isChecked:function(){return Meteor.user().profile.isChecked;
  		},
- 	bar:function(){
- 		return Math.floor(Session.get("bar")*100)
- 	}
+ 	
 
  })
 
@@ -60,6 +66,7 @@ Template.question.events({
 		var isChecked = event.target.checked;
 		Meteor.users.update({_id: userID}, {$set: {"profile.ischecked": isChecked}});
 		 
+
 	},
 	"click #deleteitem":function(event){console.log(this)
   	UserInfo.remove(this.user._id);
