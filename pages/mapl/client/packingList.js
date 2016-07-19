@@ -16,7 +16,7 @@ bar:function(){
  	},
 
       listNames: function(){
-	  return PackingNames.find();
+	  return PackingNames.find({},{sort:{name:1}});
       },
 
    	
@@ -98,7 +98,7 @@ Template.question.events({
 		 
 
 	},
-	"click #deleteitem":function(event){console.log(this)
-  	packingList.remove(this.user._id);
+	"click #deleteitem":function(event){console.dir(this)
+  	packingList.remove(this.item._id);
  	}
 });
