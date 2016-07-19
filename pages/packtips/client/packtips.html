@@ -23,3 +23,47 @@
 	<br>
 
 </template>
+
+<template name="chat">
+  <div class="jumbotron">
+    <h1>CS152aj Chat Extravanza!!</h1>
+    <p>Welcome to the CS152aj Chat room!  Be nice, Be Professional!</p>
+  </div>
+ <!-- {{#if currentUser}} -->
+    <input type="text"  class="js-chatinput" >
+    <br>
+    <button class="btn btn-info btn-large js-chatsubmit">Submit</button>
+    <hr>
+    <button class="js-clear">Clear Chats</button>
+    <br>
+    <h2>Last Five Chats:</h2>
+    <ul>
+      {{#each chat in chatlines}}
+         {{>chatEntry chat=chat}}
+      {{/each}}
+    </ul>
+    <hr>
+ <!-- {{else}}
+    <h2>You must log in to see the chats</h2>
+  {{/if}}
+  -->
+</template>
+
+<template name="chatline">
+  <li>
+    {{c.text}}
+    {{c.createdAt}}
+    {{author c.createdBy}}
+    {{c.createdBy}}
+  </li>
+</template>
+
+
+<template name="chatEntry">
+   <li><b>{{userEmail chat.createdBy}}</b>
+        / <i>{{chat.createdAt}}</i>
+      {{chat.text}}
+      <span class="js-delete">X</span>
+      <hr>
+    </li>
+</template>
