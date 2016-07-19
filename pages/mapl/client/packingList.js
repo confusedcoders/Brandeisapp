@@ -1,30 +1,52 @@
+Session.set("packinglistname","");
+
+
 Template.packingList.helpers(
    {
-    users: function(){
-   	return UserInfo.find({createdBy:Meteor.userId()});},
+    items: function(){
+	console.log(Session.get("packinglistname")+" is the listname");
+   	return packingList.find({list:Session.get("packinglistname"), 
+                                 createdBy:Meteor.userId()});},
 
    	users:function(){
    		return UserInfo.find({}, {sort:{current:1}});},
    	//progressnumber: function(){
 bar:function(){
  		return Math.floor(Session.get("bar")*100)
- 	}
+ 	},
+
+      listNames: function(){
+	  return PackingNames.find();
+      },
 
    	
    })
    
   
  Template.packingList.events({
+        "change .js-list": function(){
+	    const val = $(".js-list").val();
+	    console.log("changing "+val);
+	    Session.set("packinglistname",val);
+        },
+
+        "click .js-make-new": function(event){
+	    const newName = $(".js-new-list").val();
+            PackingNames.insert({name:newName});
+        },
+
+
  	"click .js-submit-packinglist": function(event) {
  			console.log("yes");
- 			const list = $(".js-list").val();
+ 			const item = $(".js-item").val();
+	                const list = $(".js-list").val();
  			console.log(list); 
-  			const item = {item:list, createdBy:Meteor.userId(), current:false};
-  			console.dir(item);
-  			UserInfo.insert(item);},
+  			const itemobj= {item:item, list:list, createdBy:Meteor.userId(), current:false};
+  			console.dir(itemobj);
+  			packingList.insert(itemobj);},
   			"click .js-submit-refresh": function(event) {
-  		 const numChecked = UserInfo.find({createdBy:Meteor.userId(), current:true}).count();
-		 const numTotal = UserInfo.find({createdBy:Meteor.userId()}).count();
+  		 const numChecked = packingList.find({createdBy:Meteor.userId(), current:true}).count();
+		 const numTotal = packingList.find({createdBy:Meteor.userId()}).count();
 		 Session.set("bar",numChecked/(1.0* numTotal));
 		 console.log("numcheck="+numChecked)
 		 console.log("numtotal="+numTotal)
@@ -36,7 +58,7 @@ bar:function(){
  });
  Template.question.helpers({
  	checked: function(){
- 		if (this.user.current) return "checked"; else return "";},
+ 		if (this.item.current) return "checked"; else return "";},
 
  	isChecked:function(){return Meteor.user().profile.isChecked;
  		},
