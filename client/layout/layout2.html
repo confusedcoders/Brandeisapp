@@ -3,26 +3,28 @@
 	<div class="container">
 
 
-		<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
-		<nav class="navbar navbar-default">
+	<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
+		<nav class="navbar">
 		  <div class="container-fluid">
 
-				<a class="navbar-brand" href="{{pathFor 'home'}}">PackOut</a>
+				<a class="navbar-brand active" href="{{pathFor 'home'}}">PackOut</a>
 
-				<ul class="nav nav-pills">
-				  <li role="presentation"><a href="{{pathFor 'about'}}">About</a></li>
-				  <li role="presentation"><a href="{{pathFor 'profile'}}">Profile</a></li>
-				  <li role="presentation"><a href="{{pathFor 'whereugoin'}}">Where are you going?</a></li>
-				  <li role="presentation"><a href="{{pathFor 'packingList'}}">Packing List</a></li>
-	           	<li role="presentation"><a href="{{pathFor 'packtips'}}">Packing Tips</a></li>
-				  <li role="presentation"><a href="{{pathFor 'search'}}">Search</a></li>
+				<ul class="nav nav-pills topbar">
+				  <li class="listbar" role="presentation"><a href="{{pathFor 'about'}}">About</a></li>
+				  <li class="listbar" role="presentation"><a href="{{pathFor 'profile'}}">Profile</a></li>
+				  <li class="listbar" role="presentation"><a href="{{pathFor 'whereugoin'}}">Where are you going?</a></li>
+				  <li class="listbar" role="presentation"><a href="{{pathFor 'packingList'}}">Packing List</a></li>
+	           		  <li role="presentation"><a href="{{pathFor 'packtips'}}">Packing Tips</a></li>
+				  <li class="listbar" role="presentation"><a href="{{pathFor 'search'}}">Search</a></li>
+				 </ul>
+
+				 <ul class="nav navbar-nav navbar-right">
+			            {{> loginButtons}} <!-- here --> 
+			     </ul>
 
 					<!-- add more li's here for your navigation bar -->
-				</ul>
 
-			  <ul class="nav navbar-nav navbar-right">
-			            {{> loginButtons}} <!-- here -->
-			  </ul>
+			  
 		  </div><!-- /.container-fluid -->
 		</nav>
 

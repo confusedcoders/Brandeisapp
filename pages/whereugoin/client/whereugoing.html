@@ -35,8 +35,20 @@
 </form>
 
 <br>
-	<h5>What type of trip?</h5>
-		<input type="text" class="form-control js-triptype" placeholder="Ex. Ski trip, Beach get-away, ect.">
+	<label for="CreateAccountInputGender">What type of Trip?</label>
+<br>
+    <select class="form-control js-triptype">  
+      <option>Type of Trip</option>
+      <option>Backpacking</option>
+      <option>Beach Getaway</option>
+      <option>Business</option>
+      <option>Camping</option>
+      <option>Road Trip</option>
+      <option>School</option>
+      <option>Ski Trip</option>
+      <option>Spring Break</option>
+
+    </select>
  <br>
  	<a href="{{pathFor 'packingList'}}"><button type="button" class="btn btn-success btn-lg js-submit-tripinfo" name="Tripinfo submit">Submit</button> </a> 
 
