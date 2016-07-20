@@ -6,7 +6,7 @@ Template.packingList.helpers(
     items: function(){
 	console.log(Session.get("packinglistname")+" is the listname");
    	return packingList.find({list:Session.get("packinglistname"), 
-                                 createdBy:Meteor.userId()});},
+                                 createdBy:Meteor.userId()},{sort:{current:1}});},
 
     allitems: function(){
 	console.log(Session.get("packinglistname")+" is the listname");

@@ -23,13 +23,6 @@ Template.packtips.events({
 
 })
 
- Template.question.helpers({
- 	checked: function(){
- 		if (this.current) return "checked"; else return "";},
- 		ischecked:function(){return Meteor.user().profile.ischecked;}
-
-
- })
 
 Template.packtips.helpers({
   chatlines: function(){
@@ -40,20 +33,3 @@ Template.packtips.helpers({
                         sort: {createdAt: -1}})},
 
 })
-
-
-Template.question.events({
-	"click .js-packed": function(event){
-		var theCurrentValue = event.target.checked;
-		console.log ("theCurrentValue=" + theCurrentValue);
-		UserInfo.update(this.user._id, {$set:{current:theCurrentValue}});
-		Meteor.users.update({_id: UserInfo._id}, {$set: {"profile.ischecked": ischecked}});
-		  
- 
-	
-	},
-	"click #deleteitem":function(event){console.log(this)
-  	UserInfo.remove(this.user._id);
- 	}
-});
-
