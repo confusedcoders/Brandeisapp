@@ -31,7 +31,7 @@
 		<!-- Here is where the actual content of the page
 		     gets inserted by the router! -->
 		{{#if noProfile}}
-		   Please complete the Profile!!
+		 <div class="alert alert-warning" role="danger">  Please complete the Profile!!</div>
 		       {{> profile}}
 		{{else}}
 		       {{> yield}}
